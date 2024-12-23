@@ -1,104 +1,106 @@
-**Project Overview**
+---
 
-This project performs an exploratory data analysis (EDA) of the Zomato dataset to gain insights into restaurant ratings, country-wise data distribution, and other relevant trends. Additionally, it integrates country information using a second dataset and generates visualizations to enhance understanding.
+# **Zomato Dataset Exploratory Data Analysis (EDA)**  
 
+## **Project Overview**  
+This project performs an exploratory data analysis (EDA) of the Zomato dataset to derive insights into restaurant ratings, country-wise data distribution, and other key trends. Additionally, it integrates country information using a supplementary dataset and visualizes findings to enhance understanding.  
 
-_**Dataset Information**
-_
-Datasets Used:
+---
 
-zomato.csv: Contains details of various restaurants, including ratings, location, and delivery options.
+## **Dataset Information**  
 
-Country-Code.xlsx: Maps country codes to country names.
+### **Datasets Used**:  
+1. **zomato.csv**: Contains details of various restaurants, including ratings, location, and delivery options.  
+2. **Country-Code.xlsx**: Maps country codes to their respective country names.  
 
-Key Features in Datasets:
+### **Key Features in the Datasets**:  
+- **Aggregate Rating**: Overall restaurant rating.  
+- **Rating Color**: Visual representation of ratings.  
+- **Country Code**: Identifier for restaurant locations.  
+- **Has Online Delivery**: Indicates if online delivery is available.  
+- **City**: City where the restaurant is located.  
 
-Aggregate rating: Overall restaurant rating.
+---
 
-Rating color: Color code for rating visualization.
+## **Steps in Analysis**  
 
-Country Code: Identifier for restaurant locations.
+### **1. Data Loading and Initial Exploration**  
+- Load the datasets using Pandas.  
+- Display the first few rows of the data using `.head()`.  
+- Inspect data types, check for missing values, and generate statistical summaries using `.info()`, `.describe()`, and `.isnull().sum()`.  
+- Visualize missing data with a heatmap.  
 
-Has Online delivery: Indicates if online delivery is available.
+### **2. Data Merging**  
+- Merge `zomato.csv` with `Country-Code.xlsx` on the `Country Code` column using a left join.  
 
-City: City where the restaurant is located.
+### **3. Data Visualizations**  
 
-_**Steps in Analysis**_
+#### a. **Country-Wise Restaurant Distribution**  
+- Create a pie chart for the top three countries with the highest number of restaurants.  
 
-**1. Data Loading and Initial Exploration**
+#### b. **Rating Analysis**  
+- Group data by `Aggregate Rating`, `Rating Color`, and `Rating Text`.  
+- Generate bar plots to analyze the number of ratings in each category.  
+- Create a count plot for `Rating Color`.  
 
-Load the datasets using pandas.
+#### c. **Analysis of Zero Ratings**  
+- Identify countries with restaurants having zero ratings.  
 
-Display the first few rows of the data using .head().
+#### d. **Currency Usage by Country**  
+- Group data by `Country` and `Currency` to map currencies used in each country.  
 
-Check data types, missing values, and statistical summaries using .info(), .describe(), and .isnull().sum().
+#### e. **Online Delivery Availability**  
+- Analyze countries offering online delivery using value counts.  
 
-Visualize missing data using a heatmap.
+#### f. **City-Wise Restaurant Distribution**  
+- Create a pie chart for the distribution of restaurants across the top five cities.  
 
-**2. Data Merging**
+---
 
-Merge zomato.csv with Country-Code.xlsx on the Country Code column using a left join.
+## **Observations**  
 
-**3. Data Visualizations**
+### **Rating Distribution**  
+- Most ratings fall between **2.5 and 3.4**, indicating an average category.  
+- A significant number of restaurants are **"Not Rated"**.  
 
-_a. Country-Wise Restaurant Distribution_
-Create a pie chart for the top three countries with the highest number of restaurants.
+### **Country Analysis**  
+- **India** has the highest number of restaurants with zero ratings.  
 
-_b. Rating Analysis_
-Group data by Aggregate rating, Rating color, and Rating text.
-Generate bar plots to analyze the number of ratings per category.
-Create a count plot for Rating color.
+### **Currency Analysis**  
+- Each country uses its specific currency for transactions.  
 
-_c. Analysis of Zero Ratings_
+### **Online Delivery**  
+- Online delivery services are primarily available in **India** and the **UAE**.  
 
-Identify countries with restaurants having zero ratings.
+---
 
-_d. Currency Usage by Country_
+## **Libraries Used**  
+- **Pandas**: For data manipulation and analysis.  
+- **NumPy**: For numerical computations.  
+- **Matplotlib**: For static visualizations.  
+- **Seaborn**: For enhanced statistical data visualization.  
 
-Group data by Country and Currency to map currencies used in each country.
+---
 
-_e. Online Delivery Availability_
+## **How to Run the Code**  
 
-Analyze countries offering online delivery and display them using value counts.
+1. **Dataset Setup**  
+   - Ensure both datasets (`zomato.csv` and `Country-Code.xlsx`) are in the same directory as the code file.  
 
-_f. City-Wise Restaurant Distribution_
+2. **Install Dependencies**  
+   - Install necessary libraries using the following command:  
+     ```bash  
+     pip install pandas numpy matplotlib seaborn  
+     ```  
 
-Create a pie chart for the distribution of restaurants across the top five cities.
+3. **Execution**  
+   - Run the code in a Jupyter Notebook or any Python IDE.  
 
--->>**Observations**
+---
 
-Rating Distribution:
-Most ratings fall between 2.5 and 3.4 (average category).
-A significant number of restaurants are "Not Rated."
+## **Future Scope**  
+1. Extend the analysis to include **restaurant cuisines**.  
+2. Perform **time-series analysis** if temporal data is available.  
+3. Create an **interactive dashboard** for exploring the data more effectively.  
 
-Country Analysis:
-India has the highest number of restaurants with zero ratings.
-
-Currency Analysis:
-Each country uses its own specific currency.
-
-Online Delivery:
-Online delivery is available in India and UAE.
-
-_**-->>Libraries Used**_
-
-**pandas**: For data manipulation and analysis.
-
-**numpy**: For numerical operations.
-
-**matplotlib**: For creating visualizations.
-
-**seaborn**: For statistical data visualization.
-
--->>How to Run the Code
-
-1.Ensure all required datasets (zomato.csv and Country-Code.xlsx) are in the same directory as the code file.
-
-2.Install necessary Python libraries using:
-pip install pandas numpy matplotlib seaborn
-3.Run the code in a Jupyter Notebook or Python IDE.
-
-**Future Scope**
-Extend the analysis to include restaurant cuisines.
-Perform time-series analysis if temporal data is available.
-Create a dashboard for interactive exploration of the data.
+--- 
